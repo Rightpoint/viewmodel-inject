@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api project(":viewmodel-inject-runtime")
+    implementation deps.fragment
+    implementation deps.kotlinJdk7
+    testImplementation deps.junit
+    testImplementation deps.robolectric
+    androidTestImplementation deps.androidTruth
+    androidTestImplementation deps.testRunner
+    androidTestImplementation deps.testRules
+    androidTestImplementation deps.espresso
+}

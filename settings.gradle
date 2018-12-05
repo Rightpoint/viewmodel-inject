@@ -1,0 +1,1 @@
+include ':viewmodel-inject-sample', ':viewmodel-inject-processor', ':viewmodel-inject-runtime', ':viewmodel-inject-runtime-ktx'
