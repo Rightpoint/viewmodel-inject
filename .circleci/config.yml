@@ -22,6 +22,10 @@ download_dependencies: &download_dependencies
   name: Download Dependencies
   command: ./gradlew dependencies --no-daemon
 
+report_artifacts: &report_artifacts
+  path: reports
+  destination: reports
+
 jobs:
   test:
     <<: *defaults
@@ -51,7 +55,7 @@ jobs:
           <<: *report_artifacts
 
       - store_test_results:
-          path: test-results
+          path: test-results/viewmodel-inject-processor/test/binary
 
 workflows:
   version: 2
