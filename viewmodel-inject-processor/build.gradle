@@ -8,19 +8,16 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     implementation deps.kotlinJdk8
     implementation deps.javaPoet
-
     compileOnly deps.autoService
     kapt deps.autoService
-
     implementation deps.inject
-
     testImplementation deps.junit
     testImplementation deps.truth
     testImplementation deps.compileTesting
     testImplementation deps.android
     testImplementation deps.dagger
-    testImplementation files(Jvm.current().getToolsJar())
+    testCompile files(Jvm.current().getToolsJar())
 }

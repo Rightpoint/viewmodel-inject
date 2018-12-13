@@ -25,7 +25,6 @@ dependencies {
     api deps.viewModel
     api deps.lifecycleExtensions
     implementation deps.dagger
-    implementation deps.inject
 
     testImplementation deps.truth
     testImplementation deps.kotlinJdk8
