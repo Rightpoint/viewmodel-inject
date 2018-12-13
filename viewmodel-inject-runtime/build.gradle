@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions {
+        reportDir "$rootDir/reports/viewmodel-inject-runtime"
+        resultsDir "$rootDir/test-results/viewmodel-inject-runtime"
+    }
 }
 
 dependencies {
