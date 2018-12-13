@@ -13,13 +13,13 @@ buildscript {
             'autoService': 'com.google.auto.service:auto-service:1.0-rc4',
             'autoCommon': 'com.google.auto:auto-common:0.10',
             'junit': 'junit:junit:4.12',
-            'truth': 'com.google.truth:truth:0.40',
+            'truth': 'com.google.truth:truth:0.42',
             'mockito': 'org.mockito:mockito-core:2.23.4',
             'androidTruth': 'androidx.test.ext:truth:1.0.0',
             'kotlinJdk7': "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
             'kotlinJdk8': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}",
             'javaPoet': 'com.squareup:javapoet:1.11.1',
-            'guava': 'com.google.guava:guava:26.0-jre',
+            'guava': 'com.google.guava:guava:27.0.1-jre',
             'compileTesting': 'com.google.testing.compile:compile-testing:0.15',
             'robolectric': 'org.robolectric:robolectric:4.0.2',
             'inject': 'javax.inject:javax.inject:1',
@@ -58,11 +58,11 @@ subprojects {
 
     // Guava is depended on transitively. Force it to the same version to prevent missing methods.
     // This occurs when the compilation classpath picks 23.x whereas tests need 25.x.
-//    configurations.all {
-//        it.resolutionStrategy {
-//            it.force(deps.guava)
-//        }
-//    }
+    configurations.all {
+        it.resolutionStrategy {
+            it.force(deps.guava)
+        }
+    }
 
 //    group = GROUP
 //    version = VERSION_NAME
