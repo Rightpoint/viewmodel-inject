@@ -55,7 +55,7 @@ jobs:
           <<: *report_artifacts
 
       - store_test_results:
-          path: test-results/viewmodel-inject-processor/test/binary/TEST-com.rightpoint.inject.viewmodel.processor.ViewModelInjectionProcessorTest.xml
+          path: test-results/viewmodel-inject-processor/test/binary
 
 workflows:
   version: 2
