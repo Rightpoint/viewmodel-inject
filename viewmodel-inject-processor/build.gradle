@@ -8,7 +8,6 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 testReportDirName = "$rootDir/reports/viewmodel-inject-processor"
-testResultsDirName = "$rootDir/test-results/viewmodel-inject-processor"
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')

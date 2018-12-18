@@ -42,8 +42,14 @@ jobs:
           <<: *download_dependencies
 
       - run:
-          name: Tests
-          command: ./gradlew test --no-daemon
+          name: Run Tests
+          command: ./gradlew viewmodel-inject-processor:test viewmodel-inject-runtime:testDebugUnitTest viewmodel-inject-runtime-ktx:testDebugUnitTest --no-daemon
+
+      - run:
+          name: Copy Test Results
+          command: |
+            mkdir -p ./test-results/
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ./test-results/ \;
 
       - save_cache:
           <<: *cache_key
@@ -55,7 +61,7 @@ jobs:
           <<: *report_artifacts
 
       - store_test_results:
-          path: test-results/viewmodel-inject-processor/test/binary
+          path: test-results/
 
 workflows:
   version: 2

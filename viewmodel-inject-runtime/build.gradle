@@ -2,13 +2,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion buildConfig.compileSdk
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode buildConfig.code
+        versionName buildConfig.name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -21,7 +21,6 @@ android {
 
     testOptions {
         reportDir "$rootDir/reports/viewmodel-inject-runtime"
-        resultsDir "$rootDir/test-results/viewmodel-inject-runtime"
     }
 }
 
