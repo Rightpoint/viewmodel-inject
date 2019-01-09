@@ -39,7 +39,7 @@ dependencies {
 
 publish {
     userOrg = publishConfig.userOrg
-    repoName = 'ViewModel-Inject-KTX'
+    repoName = publishConfig.repoName
     groupId = publishConfig.groupId
     artifactId = 'viewmodel-inject-runtime-ktx'
     publishVersion = buildConfig.name

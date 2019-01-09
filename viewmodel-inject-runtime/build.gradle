@@ -52,7 +52,7 @@ makeJar.dependsOn(clearJar)
 
 publish {
     userOrg = publishConfig.userOrg
-    repoName = 'ViewModel-Inject'
+    repoName = publishConfig.repoName
     groupId = publishConfig.groupId
     artifactId = 'viewmodel-inject-runtime'
     publishVersion = buildConfig.name
