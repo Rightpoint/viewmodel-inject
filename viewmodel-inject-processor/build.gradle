@@ -3,6 +3,7 @@ import org.gradle.internal.jvm.Jvm
 apply plugin: 'java-library'
 apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'org.jetbrains.kotlin.kapt'
+apply plugin: 'com.novoda.bintray-release'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -22,4 +23,14 @@ dependencies {
     testImplementation deps.android
     testImplementation deps.dagger
     testCompile files(Jvm.current().getToolsJar())
+}
+
+publish {
+    userOrg = publishConfig.userOrg
+    repoName = 'ViewModel-Inject-Processor'
+    groupId = publishConfig.groupId
+    artifactId = 'viewmodel-inject-processor'
+    publishVersion = buildConfig.name
+    desc = "viewmodel-inject annotation processor"
+    website = publishConfig.website
 }
