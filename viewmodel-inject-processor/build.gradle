@@ -27,7 +27,7 @@ dependencies {
 
 publish {
     userOrg = publishConfig.userOrg
-    repoName = 'ViewModel-Inject-Processor'
+    repoName = publishConfig.repoName
     groupId = publishConfig.groupId
     artifactId = 'viewmodel-inject-processor'
     publishVersion = buildConfig.name
