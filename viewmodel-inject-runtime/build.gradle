@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion buildConfig.compileSdk
@@ -48,3 +49,13 @@ task clearJar(type: Delete) {
 }
 
 makeJar.dependsOn(clearJar)
+
+publish {
+    userOrg = publishConfig.userOrg
+    repoName = 'ViewModel-Inject'
+    groupId = publishConfig.groupId
+    artifactId = 'viewmodel-inject-runtime'
+    publishVersion = buildConfig.name
+    desc = "viewmodel-inject runtime"
+    website = publishConfig.website
+}

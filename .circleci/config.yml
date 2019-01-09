@@ -63,6 +63,38 @@ jobs:
       - store_test_results:
           path: test-results/
 
+  publish:
+    <<: *defaults
+    steps:
+      - run:
+          <<: *update_sdk
+
+      - checkout
+
+      - restore_cache:
+          <<: *cache_key
+
+      - run:
+          <<: *download_dependencies
+
+      - run:
+          name: Publish Processor
+          command: ./gradlew clean build viewmodel-inject-processor:bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayKey=$BINTRAY_KEY -PdryRun=false
+
+      - run:
+          name: Publish Runtime
+          command: ./gradlew clean build viewmodel-inject-runtime:bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayKey=$BINTRAY_KEY -PdryRun=false
+
+      - run:
+          name: Publish Kotlin Extensions
+          command: ./gradlew clean build viewmodel-inject-runtime-ktx:bintrayUpload -PbintrayUser=$BINTRAY_USER -PbintrayKey=$BINTRAY_KEY -PdryRun=false
+
+      - save_cache:
+          <<: *cache_key
+          paths:
+          - ~/.gradle/caches
+          - ~/.gradle/wrapper
+
 workflows:
   version: 2
   build:
@@ -71,3 +103,11 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - publish:
+          requires:
+          - test
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
