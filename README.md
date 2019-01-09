@@ -64,7 +64,7 @@ dependencies {
 }
 ```
 
-For the Kotlin projects:
+For Kotlin projects:
 ```
 dependencies {
   implementation "com.rightpoint:viewmodel-inject-runtime-ktx:$latest_version"
