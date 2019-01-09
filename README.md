@@ -18,7 +18,7 @@ class YourViewModel @Inject constructor() : ViewModel() {
 }
 ```
 
-Dagger should now provide a `ViewModelProvider.Factory` implementation with an instance of your `ViewModel`! You can now inject it in your `FragmentActivity` or `Fragment`:
+Dagger should now provide a `ViewModelProvider.Factory` implementation with an instance of your ViewModel! You can now inject the factory into your `FragmentActivity` or `Fragment`:
 ```
 class YourActivity : FragmentActivity() {
   @Inject lateinit var factory: ViewModelProvider.Factory
