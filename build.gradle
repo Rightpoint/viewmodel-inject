@@ -16,7 +16,7 @@ buildscript {
     def publishConfig       = [:]
     publishConfig.userOrg   = 'raizlabs'
     publishConfig.repoName  = 'maven'
-    publishConfig.groupId   = 'com.righpoint'
+    publishConfig.groupId   = 'com.rightpoint'
     publishConfig.website   = "https://github.com/Raizlabs/viewmodel-inject"
     ext.publishConfig       = publishConfig
 
