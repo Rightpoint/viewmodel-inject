@@ -3,7 +3,7 @@ Utilizes Dagger to generate a ViewModelProvider.Factory
 
 # Usage
 Add the `@ViewModelModule` annotation and include the `ViewModelInjectionModule` module (generated at compile time) on an Application-scope module:
-```
+```kotlin
 @ViewModelModule
 @Module(includes = [ViewModelInjectionModule::class])
 abstract class AppModule {
@@ -12,14 +12,14 @@ abstract class AppModule {
 ```
 
 Now just annotate your `ViewModel` constructors with Dagger's `@Inject` annotation:
-```
+```kotlin
 class YourViewModel @Inject constructor() : ViewModel() {
   ...
 }
 ```
 
 Dagger should now provide a `ViewModelProvider.Factory` implementation with an instance of your ViewModel! You can now inject the factory into your `FragmentActivity` or `Fragment`:
-```
+```kotlin
 class YourActivity : FragmentActivity() {
   @Inject lateinit var factory: ViewModelProvider.Factory
   private lateinit var viewModel: YourViewModel
@@ -33,7 +33,7 @@ class YourActivity : FragmentActivity() {
 ```
 
 Additionally, Kotlin projects can take advantage of the Kotlin extensions:
-```
+```kotlin
 class YourActivity : FragmentActivity() {
   @Inject lateinit var factory: ViewModelProvider.Factory
   private lateinit var viewModel: YourViewModel
@@ -48,7 +48,7 @@ class YourActivity : FragmentActivity() {
 
 # Installation
 Add to the root project's `build.gradle` file:
-```
+```groovy
 allprojects {
   repositories {
     jcenter()
@@ -57,7 +57,7 @@ allprojects {
 ```
 
 In the project `build.gradle` file:
-```
+```groovy
 dependencies {
   implementation "com.rightpoint:viewmodel-inject-runtime:$latest_version"
   annotationProcessor "com.rightpoint:viewmodel-inject-processor:$latest_version"
@@ -65,7 +65,7 @@ dependencies {
 ```
 
 For Kotlin projects:
-```
+```groovy
 dependencies {
   implementation "com.rightpoint:viewmodel-inject-runtime-ktx:$latest_version"
   kapt "com.rightpoint:viewmodel-inject-processor:$latest_version"
