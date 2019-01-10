@@ -51,7 +51,7 @@ Add to the root project's `build.gradle` file:
 ```
 allprojects {
   repositories {
-    maven { url "https://dl.bintray.com/raizlabs/maven" }
+    jcenter()
   }
 }
 ```
