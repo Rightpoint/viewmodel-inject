@@ -42,6 +42,10 @@ jobs:
           <<: *download_dependencies
 
       - run:
+          name: Install Updated Runtime JAR
+          command: ./gradlew viewmodel-inject-runtime:installJar
+
+      - run:
           name: Run Tests
           command: ./gradlew viewmodel-inject-processor:test viewmodel-inject-runtime:testDebugUnitTest viewmodel-inject-runtime-ktx:testDebugUnitTest --no-daemon
 
@@ -76,6 +80,10 @@ jobs:
 
       - run:
           <<: *download_dependencies
+
+      - run:
+          name: Install Updated Runtime JAR
+          command: ./gradlew viewmodel-inject-runtime:installJar
 
       - run:
           name: Publish Processor
