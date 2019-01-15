@@ -37,6 +37,11 @@ dependencies {
     testImplementation deps.robolectric
 }
 
+task installJar(type: Copy) {
+    from('build/outputs/viewmodel-inject.jar')
+    into("$rootDir/viewmodel-inject-processor/libs/")
+}
+
 task makeJar(type: Copy) {
     from('build/intermediates/intermediate-jars/debug')
     into('build/outputs/')
@@ -48,6 +53,7 @@ task clearJar(type: Delete) {
     delete 'build/outputs/viewmodel-inject.jar'
 }
 
+installJar.dependsOn(makeJar)
 makeJar.dependsOn(clearJar)
 
 publish {
