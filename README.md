@@ -1,3 +1,7 @@
+# DEPRECATED
+
+**Attention:** This library has been deprecated and is not in active development. For ViewModel injection support please use the [Hilt Jetpack integration for ViewModels](https://developer.android.com/training/dependency-injection/hilt-jetpack). For the Kotlin extensions please use the extensions provided as part of [Android KTX](https://developer.android.com/kotlin/ktx).
+
 # viewmodel-inject
 Utilizes Dagger to generate a ViewModelProvider.Factory
 
